@@ -1,0 +1,99 @@
+[
+    {
+      "subAttr": [
+        {
+          
+          "subName": "黑色",
+        },
+        {
+          
+          "subName": "军绿色",
+        },
+        {
+          
+          "subName": "花色",
+        },
+        {
+          
+          "subName": "浅灰色",
+        },
+        {
+          
+          "subName": "米白色",
+        }
+      ],
+      "mainName": "颜色"
+    },
+    {
+      "subAttr": [
+        {
+          "subName": "38",
+        },
+        {
+          "subName": "39",
+        },
+        {
+          "subName": "40",
+        },
+                  {
+          "subName": "41",
+        },
+        {
+          "subName": "42",
+        },
+        {
+          "subName": "43",
+        }
+      ],
+      "mainName": "尺寸"
+    },
+    {
+      "subAttr": [
+        {
+          "subName": "秋款",
+        },
+        {
+          "subName": "冬款",
+        }
+      ],
+      "mainName": "款式"
+    },
+    {
+      "subAttr": [
+        {
+          
+          "subName": "老北京布鞋",
+        },
+        {
+          
+          "subName": "米亲",
+        },
+        {
+          
+          "subName": "YOBN/优步",
+        },
+        {
+          "subID": "89",
+          "subName": "MINGKUNG/名匡",
+        },
+        {
+          
+          "subName": "蓓尔",
+        }
+      ],
+      "mainName": "品牌"
+    },
+    {
+      "subAttr": [
+        {
+          
+          "subName": "男款",
+        },
+        {
+          
+          "subName": "女款",
+        }
+      ],
+      "mainName": "情侣款"
+    }
+  ]
