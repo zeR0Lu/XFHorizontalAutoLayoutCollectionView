@@ -89,7 +89,7 @@
         layout.interitemSpacing = 12.0;
         layout.headerViewHeight = 40.0;
         layout.footerViewHeight = 40.0;
-        layout.insetForSection = UIEdgeInsetsMake(0.0, 12.0, 16.0, 12.0);
+//        layout.itemInset = UIEdgeInsetsMake(0.0, 12.0, 16.0, 12.0);
         layout.delegate = self;
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];

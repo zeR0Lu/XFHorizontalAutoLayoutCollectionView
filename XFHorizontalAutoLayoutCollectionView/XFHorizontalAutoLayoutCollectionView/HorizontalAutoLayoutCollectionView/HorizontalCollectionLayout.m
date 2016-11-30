@@ -37,18 +37,20 @@
         self.interitemSpacing = 4.0;
         self.lineSpacing = 4.0;
         self.itemHeight = 30.0;
-        self.insetForSection = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+        self.itemInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+        self.headerInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+        self.footerInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+        self.labelFont = [UIFont systemFontOfSize:15.0];
     }
     return self;
 }
 
 /** 1、当collectionView布局item时 第一个执行的方法 */
-//这里有个要注意的地方,在执行这个方法的时候, 已经完成了对象的赋值
 - (void)prepareLayout {
     /** 重写layout中的方法 首先必须调用父类 */
     [super prepareLayout];
     
-    self.viewWidth = SCREENWIDTH - self.insetForSection.left - self.insetForSection.right;
+    self.viewWidth = SCREENWIDTH - self.itemInset.left - self.itemInset.right;
     //所有内容的布局属性数组
     self.attributesArray = [NSMutableArray array];
     
@@ -67,16 +69,18 @@
             [self setItemFrameWithIndexPath:[NSIndexPath indexPathForItem:j inSection:i]];
             
             if ( (i == sectionCount - 1) && ( j == itemCount - 1) ) {
-                //这里是当最后一个 item 的布局设置完成后如果有设置 footer 就要把 footer 添加到所有布局数组
+                //这里是当最后一个 item 的 layoutAttributes 设置完成后如果有设置 footer 就要把 footer 添加到所有 layoutAttributes 数组
                 if ( [self.delegate respondsToSelector:@selector(collectionViewDynamicFooterSizeWithIndexPath:)] ) {
                     
+                    //获取最后一个 item 的 layoutAttributes
                     UICollectionViewLayoutAttributes *lastAttributes = self.attributesArray.lastObject;
-                    
+                    //添加 footer 的 layoutAttributes
                     [self makeFooterAttributesWithLastItemAttributes:lastAttributes];
                     
+                    // 获取新添加的 footer 的 layoutAttributes
                     UICollectionViewLayoutAttributes *footerAttributes = self.footerAttributes.lastObject;
-                    
-                    self.contentHeight = CGRectGetMaxY(footerAttributes.frame) + self.insetForSection.bottom;
+                    //计算总高度
+                    self.contentHeight = CGRectGetMaxY(footerAttributes.frame) + self.itemInset.bottom;
                 }
             }
         }
@@ -100,7 +104,7 @@
             //同一组
             if ( CGRectGetMaxX(lastAttributes.frame) + self.interitemSpacing + width > self.viewWidth ) {
                 //需要换行
-                x = self.insetForSection.left;
+                x = self.itemInset.left + self.lineSpacing;
                 y = CGRectGetMaxY(lastAttributes.frame) + self.lineSpacing;
             }else {
                 //不需要换行
@@ -122,7 +126,7 @@
             [self makeHeaderAttributesWithIndexPath:indexPath lastItemAttributes:lastAttributes];
             
             //设置新的 section 的第一个 item 的 frame
-            x = self.insetForSection.left;
+            x = self.itemInset.left + self.lineSpacing;
             y = CGRectGetMaxY(lastAttributes.frame) + self.lineSpacing * 2 + self.headerViewHeight;
         }
     }else {
@@ -138,8 +142,8 @@
         }
         
         //设置新的 section 的第一个 item 的 frame
-        x = self.insetForSection.left;
-        y = self.lineSpacing + lastAttributes.frame.size.height;
+        x = self.itemInset.left + self.lineSpacing;
+        y = self.lineSpacing + lastAttributes.size.height;
     }
     
     //设置每一个 item 的 frame
@@ -149,16 +153,15 @@
     self.contentHeight = CGRectGetMaxY(attributes.frame) + self.lineSpacing;
     /** 保存在数组中 */
     [self.itemsattributes[indexPath.section] addObject:attributes];
-    
     [self.attributesArray addObject:attributes];
 }
 
-#pragma mark - 
+#pragma mark - New Header Or Footer
 - (void)makeHeaderAttributesWithIndexPath:(NSIndexPath *)indexPath lastItemAttributes:(UICollectionViewLayoutAttributes *)attributes {
     //设置第一个section的header
     UICollectionViewLayoutAttributes *headerAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:indexPath];
     
-    CGFloat y = (attributes)?CGRectGetMaxY(attributes.frame) + self.lineSpacing:self.insetForSection.top;
+    CGFloat y = (attributes)?CGRectGetMaxY(attributes.frame) + self.lineSpacing:self.itemInset.top;
     CGFloat headerWidth =  0.0;
     CGFloat headerHeight =  0.0;
     
@@ -168,12 +171,12 @@
         headerWidth = size.width;
         headerHeight = size.height;
     }else {
-        headerWidth = self.viewWidth;
+        headerWidth = SCREENWIDTH - self.headerInset.left - self.headerInset.right;
         headerHeight = self.headerViewHeight;
     }
     
     if ( headerHeight > 0.0 ) {
-        headerAttributes.frame = CGRectMake(self.insetForSection.left, y, headerWidth, headerHeight);
+        headerAttributes.frame = CGRectMake(self.headerInset.left, y, headerWidth, headerHeight);
         
         [self.headerAttributes addObject:headerAttributes];
         [self.attributesArray addObject:headerAttributes];
@@ -190,14 +193,14 @@
         
         CGSize size = [self.delegate collectionViewDynamicFooterSizeWithIndexPath:attributes.indexPath];
         footerWidth = size.width;
-        footerWidth = size.height;
+        footerHeight = size.height;
     } else {
-        footerWidth = self.viewWidth;
+        footerWidth = SCREENWIDTH - self.footerInset.left - self.footerInset.right;
         footerHeight = self.footerViewHeight;
     }
     
     if ( footerHeight > 0 ) {
-        footerAttributes.frame = CGRectMake(self.insetForSection.left, CGRectGetMaxY(attributes.frame) + self.lineSpacing, footerWidth - self.insetForSection.right, footerHeight);
+        footerAttributes.frame = CGRectMake(self.footerInset.left, CGRectGetMaxY(attributes.frame) + self.lineSpacing, footerWidth, footerHeight);
         [self.footerAttributes addObject:footerAttributes];
         [self.attributesArray addObject:footerAttributes];
     }
@@ -226,15 +229,15 @@
 // 这里可以处理 uicollectionview 内容不够屏幕高度不能滑动的问题,只要把 contentsize.height 设置成比屏幕高度大就可以了
 - (CGSize)collectionViewContentSize {
     
-    return CGSizeMake(0.0, self.contentHeight + self.insetForSection.bottom);
+    return CGSizeMake(0.0, self.contentHeight + self.itemInset.bottom);
 }
 
 - (CGFloat)countItemSizeWithIndexPath:(NSIndexPath *)indexPath {
     NSString *content = [self.delegate collectionViewItemSizeWithIndexPath:indexPath];
     
-    CGSize size = [content sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]}];
+    CGSize size = [content sizeWithAttributes:@{NSFontAttributeName:self.labelFont}];
     
-    return MAX(size.width + 16.0, 40.0);
+    return MAX(size.width + 24.0, 40.0);
 }
 
 

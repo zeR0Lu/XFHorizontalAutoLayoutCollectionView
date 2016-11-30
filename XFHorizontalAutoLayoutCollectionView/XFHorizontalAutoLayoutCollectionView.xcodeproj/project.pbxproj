@@ -16,12 +16,12 @@
 		6145801F1DDEE85E005D426D /* FooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614580121DDEE85E005D426D /* FooterCollectionReusableView.m */; };
 		614580201DDEE85E005D426D /* FooterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 614580131DDEE85E005D426D /* FooterCollectionReusableView.xib */; };
 		614580211DDEE85E005D426D /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614580151DDEE85E005D426D /* HeaderCollectionReusableView.m */; };
-		614580221DDEE85E005D426D /* HorizontalCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 614580171DDEE85E005D426D /* HorizontalCollectionLayout.m */; };
 		614580231DDEE85E005D426D /* XFContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614580191DDEE85E005D426D /* XFContentCell.m */; };
 		614580241DDEE85E005D426D /* XFContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6145801A1DDEE85E005D426D /* XFContentCell.xib */; };
 		614580251DDEE85E005D426D /* XFHorizontalItemAutoLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6145801C1DDEE85E005D426D /* XFHorizontalItemAutoLayoutView.m */; };
 		614580261DDEE85E005D426D /* XFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6145801E1DDEE85E005D426D /* XFModel.m */; };
 		614580281DDEE8A0005D426D /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 614580271DDEE8A0005D426D /* Contents.json */; };
+		61AA06B21DEEC2FC006BD4E4 /* HorizontalCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AA06B11DEEC2FC006BD4E4 /* HorizontalCollectionLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,6 @@
 		614580131DDEE85E005D426D /* FooterCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterCollectionReusableView.xib; sourceTree = "<group>"; };
 		614580141DDEE85E005D426D /* HeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		614580151DDEE85E005D426D /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
-		614580161DDEE85E005D426D /* HorizontalCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalCollectionLayout.h; sourceTree = "<group>"; };
-		614580171DDEE85E005D426D /* HorizontalCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalCollectionLayout.m; sourceTree = "<group>"; };
 		614580181DDEE85E005D426D /* XFContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFContentCell.h; sourceTree = "<group>"; };
 		614580191DDEE85E005D426D /* XFContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFContentCell.m; sourceTree = "<group>"; };
 		6145801A1DDEE85E005D426D /* XFContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XFContentCell.xib; sourceTree = "<group>"; };
@@ -50,6 +48,8 @@
 		6145801D1DDEE85E005D426D /* XFModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFModel.h; sourceTree = "<group>"; };
 		6145801E1DDEE85E005D426D /* XFModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFModel.m; sourceTree = "<group>"; };
 		614580271DDEE8A0005D426D /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		61AA06B01DEEC2FC006BD4E4 /* HorizontalCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalCollectionLayout.h; sourceTree = "<group>"; };
+		61AA06B11DEEC2FC006BD4E4 /* HorizontalCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalCollectionLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,20 +108,20 @@
 		614580101DDEE85E005D426D /* HorizontalAutoLayoutCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				6145801B1DDEE85E005D426D /* XFHorizontalItemAutoLayoutView.h */,
+				6145801C1DDEE85E005D426D /* XFHorizontalItemAutoLayoutView.m */,
+				614580141DDEE85E005D426D /* HeaderCollectionReusableView.h */,
+				614580151DDEE85E005D426D /* HeaderCollectionReusableView.m */,
 				614580111DDEE85E005D426D /* FooterCollectionReusableView.h */,
 				614580121DDEE85E005D426D /* FooterCollectionReusableView.m */,
 				614580131DDEE85E005D426D /* FooterCollectionReusableView.xib */,
-				614580141DDEE85E005D426D /* HeaderCollectionReusableView.h */,
-				614580151DDEE85E005D426D /* HeaderCollectionReusableView.m */,
-				614580161DDEE85E005D426D /* HorizontalCollectionLayout.h */,
-				614580171DDEE85E005D426D /* HorizontalCollectionLayout.m */,
 				614580181DDEE85E005D426D /* XFContentCell.h */,
 				614580191DDEE85E005D426D /* XFContentCell.m */,
 				6145801A1DDEE85E005D426D /* XFContentCell.xib */,
-				6145801B1DDEE85E005D426D /* XFHorizontalItemAutoLayoutView.h */,
-				6145801C1DDEE85E005D426D /* XFHorizontalItemAutoLayoutView.m */,
 				6145801D1DDEE85E005D426D /* XFModel.h */,
 				6145801E1DDEE85E005D426D /* XFModel.m */,
+				61AA06B01DEEC2FC006BD4E4 /* HorizontalCollectionLayout.h */,
+				61AA06B11DEEC2FC006BD4E4 /* HorizontalCollectionLayout.m */,
 			);
 			path = HorizontalAutoLayoutCollectionView;
 			sourceTree = "<group>";
@@ -205,10 +205,10 @@
 				614580011DDEE852005D426D /* ViewController.m in Sources */,
 				614580231DDEE85E005D426D /* XFContentCell.m in Sources */,
 				61457FFE1DDEE852005D426D /* AppDelegate.m in Sources */,
+				61AA06B21DEEC2FC006BD4E4 /* HorizontalCollectionLayout.m in Sources */,
 				6145801F1DDEE85E005D426D /* FooterCollectionReusableView.m in Sources */,
 				61457FFB1DDEE852005D426D /* main.m in Sources */,
 				614580261DDEE85E005D426D /* XFModel.m in Sources */,
-				614580221DDEE85E005D426D /* HorizontalCollectionLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +363,7 @@
 				6145800F1DDEE852005D426D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

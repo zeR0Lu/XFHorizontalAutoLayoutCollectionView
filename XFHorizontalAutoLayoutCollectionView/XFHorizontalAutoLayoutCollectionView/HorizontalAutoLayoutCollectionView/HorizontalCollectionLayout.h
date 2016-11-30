@@ -24,14 +24,20 @@
 @property (nonatomic, assign) CGFloat lineSpacing;
 // item 的间距 
 @property (nonatomic, assign) CGFloat interitemSpacing;
-// collectionView 边距缩进
-@property (nonatomic, assign) UIEdgeInsets insetForSection;
 // header 高度
 @property (nonatomic, assign) CGFloat headerViewHeight;
 // footer 高度
 @property (nonatomic, assign) CGFloat footerViewHeight;
 // item 高度
 @property (nonatomic, assign) CGFloat itemHeight;
+// footer 边距缩进
+@property (nonatomic, assign) UIEdgeInsets footerInset;
+// header 边距缩进
+@property (nonatomic, assign) UIEdgeInsets headerInset;
+// item 边距缩进
+@property (nonatomic, assign) UIEdgeInsets itemInset;
+// item Label Font
+@property (nonatomic, copy) UIFont *labelFont;
 
 @property (nonatomic, weak) id<HorizontalCollectionLayoutDelegate> delegate;
 

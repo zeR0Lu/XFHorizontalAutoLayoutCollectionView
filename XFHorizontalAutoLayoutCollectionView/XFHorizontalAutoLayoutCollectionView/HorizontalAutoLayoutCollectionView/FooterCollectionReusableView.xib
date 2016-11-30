@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALi-Bo-V76">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <rect key="frame" x="12" y="0.0" width="308" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -26,7 +26,7 @@
                 <constraint firstAttribute="trailing" secondItem="ALi-Bo-V76" secondAttribute="trailing" id="B4j-xG-bzS"/>
                 <constraint firstAttribute="bottom" secondItem="ALi-Bo-V76" secondAttribute="bottom" id="VB0-CD-phn"/>
                 <constraint firstItem="ALi-Bo-V76" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="YFN-WV-fw4"/>
-                <constraint firstItem="ALi-Bo-V76" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="auB-yb-phE"/>
+                <constraint firstItem="ALi-Bo-V76" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="12" id="auB-yb-phE"/>
             </constraints>
             <point key="canvasLocation" x="-451" y="-151"/>
         </collectionReusableView>

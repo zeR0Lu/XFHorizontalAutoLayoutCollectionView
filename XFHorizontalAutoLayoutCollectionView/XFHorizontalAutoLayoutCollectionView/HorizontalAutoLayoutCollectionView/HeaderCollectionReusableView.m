@@ -15,7 +15,7 @@
 @implementation HeaderCollectionReusableView
 - (UILabel *)label {
     if ( !_label ) {
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(.0, 0.0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(12.0, 0.0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
         _label.text = @"header";
         _label.textColor = [UIColor blackColor];
     }
