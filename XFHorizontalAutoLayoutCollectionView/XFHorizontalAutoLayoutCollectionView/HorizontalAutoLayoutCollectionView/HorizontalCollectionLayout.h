@@ -20,23 +20,23 @@
 @end
 
 @interface HorizontalCollectionLayout : UICollectionViewLayout
-// item 的行距
+// item 的行距（默认4.0）
 @property (nonatomic, assign) CGFloat lineSpacing;
-// item 的间距 
+// item 的间距 （默认4.0）
 @property (nonatomic, assign) CGFloat interitemSpacing;
-// header 高度
+// header 高度（默认0.0）
 @property (nonatomic, assign) CGFloat headerViewHeight;
-// footer 高度
+// footer 高度（默认0.0）
 @property (nonatomic, assign) CGFloat footerViewHeight;
-// item 高度
+// item 高度 (默认30)
 @property (nonatomic, assign) CGFloat itemHeight;
-// footer 边距缩进
+// footer 边距缩进（默认UIEdgeInsetsZero）
 @property (nonatomic, assign) UIEdgeInsets footerInset;
-// header 边距缩进
+// header 边距缩进（默认UIEdgeInsetsZero）
 @property (nonatomic, assign) UIEdgeInsets headerInset;
-// item 边距缩进
+// item 边距缩进（默认UIEdgeInsetsZero）
 @property (nonatomic, assign) UIEdgeInsets itemInset;
-// item Label Font
+// item Label Font（默认系统字体15）
 @property (nonatomic, copy) UIFont *labelFont;
 
 @property (nonatomic, weak) id<HorizontalCollectionLayoutDelegate> delegate;

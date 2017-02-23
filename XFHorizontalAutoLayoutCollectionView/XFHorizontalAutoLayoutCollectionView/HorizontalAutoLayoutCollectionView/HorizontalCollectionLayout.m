@@ -11,19 +11,18 @@
 #define SCREENWIDTH [[UIScreen mainScreen] bounds].size.width
 
 @interface HorizontalCollectionLayout ()
-
+/** 总的布局对象数组，包括item，sectionHeader，footerHeader */
 @property (nonatomic, strong) NSMutableArray *attributesArray;
-
+/** item的布局对象数组 */
 @property (nonatomic, strong) NSMutableArray *itemsattributes;
-
+/** header的布局对象数组 */
 @property (nonatomic, strong) NSMutableArray *headerAttributes;
-
+/** footer的布局对象数组 */
 @property (nonatomic, strong) NSMutableArray *footerAttributes;
-
+/** 计算 collectionview 的内容高度 */
 @property (nonatomic, assign) CGFloat contentHeight;
-
+/** collectionview 自身的宽度 */
 @property (nonatomic, assign) CGFloat viewWidth;
-
 @end
 
 @implementation HorizontalCollectionLayout
@@ -37,9 +36,9 @@
         self.interitemSpacing = 4.0;
         self.lineSpacing = 4.0;
         self.itemHeight = 30.0;
-        self.itemInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
-        self.headerInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
-        self.footerInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+        self.itemInset = UIEdgeInsetsZero;
+        self.headerInset = UIEdgeInsetsZero;
+        self.footerInset = UIEdgeInsetsZero;
         self.labelFont = [UIFont systemFontOfSize:15.0];
     }
     return self;
@@ -237,7 +236,7 @@
     
     CGSize size = [content sizeWithAttributes:@{NSFontAttributeName:self.labelFont}];
     
-    return MAX(size.width + 24.0, 40.0);
+    return MAX(size.width + 24.0, self.itemHeight);
 }
 
 
