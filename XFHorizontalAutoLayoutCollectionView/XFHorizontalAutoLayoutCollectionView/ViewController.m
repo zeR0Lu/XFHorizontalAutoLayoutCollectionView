@@ -20,6 +20,8 @@
     
     XFHorizontalItemAutoLayoutView *view = [[XFHorizontalItemAutoLayoutView alloc] init];
     view.frame = CGRectMake(0.0, 64.0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    
+    
     [self.view addSubview:view];
 }
 
